@@ -5,28 +5,125 @@
     <title>作业批改网 - 首页</title>
     <link rel="stylesheet" type="text/css" href="CSS/reset.css" />
     <link rel="stylesheet" type="text/css" href="CSS/main.css"/>
+	<!-- 日历控件 -->
+	<script src="./JS/jquery-1.12.4.min.js"></script>
+	<script>
+		window.onload = function(){
+			showdata();
+		}
+	</script>
 </head>
 <body>
-<div class="header_con">
-    <div class="header">
-        <div class="welcome fl">欢迎来到作业批改网!</div>
-        <div class="fr">
-            <div class="login_info fl">
-                欢迎您：<em>张 三</em>
-            </div>
-            <div class="login_btn fl">
-                <a href="login.html">登录</a>
-                <span>|</span>
-                <a href="register.html">注册</a>
-            </div>
-            <div class="user_link fl">
-                <span>|</span>
-                <a href="user_center_info.html">用户中心</a>
-                <span>|</span>
-                <a href="my_homework.html">我的作业</a>
-            </div>
-        </div>
-    </div>
+<div class="head">网上作业批改系统</div>
+<div class="menu">
+	<a class="menu_item">网站首页</a>
+	<a class="menu_item">个人信息</a>
+	<a class="menu_item">找回密码</a>
 </div>
+
+<div class="main">
+	<div class="left">
+		<div calss="user_login">
+			<div class="item_header">用户登录
+					<span>立即注册>></span>
+			</div>
+			<div class="user_input_item">
+				<div>用户名：</div>
+				<input type="text">
+			</div>
+			<div class="user_input_item">
+				<div>密&nbsp;&nbsp;&nbsp;码：</div>
+				<input type="text">
+			</div>
+			<div class="user_input_item">
+				<label>身&nbsp;&nbsp;&nbsp;份：</label>
+				<select name="position">
+					<option value="1">老师</option>
+					<option value="2">学生</option>
+					<option value="3">管理员</option>
+				</select>
+				<input type="button" name="登录" id="btn_user_login" value="登录">
+			</div>
+		</div>
+		<div class="public_info">
+			<div class="item_header">系统公告
+				<span>更多>></span>
+			</div>
+			<ul>
+				<li>
+					<a href="#">系统公告标题1</a>
+					<span>2018-10-18</span>
+				</li>
+				<li>
+					<a href="#">系统公告标题2</a>
+					<span>2018-10-18</span>
+				</li>
+				<li>
+					<a href="#">系统公告标题3</a>
+					<span>2018-10-18</span>
+				</li>
+				<li>
+					<a href="#">系统公告标题4</a>
+					<span>2018-10-18</span>
+				</li>
+				<li>
+					<a href="#">系统公告标题5</a>
+					<span>2018-10-18</span>
+				</li>
+			</ul>
+		</div>
+		<!-- 插入时间 -->
+		<div class="time_info">
+			<div class="item_header">当前时间</div>
+			<div class="weather">
+				<iframe name="weather_inc" src="http://i.tianqi.com/index.php?c=code&id=7"></iframe>
+			</div>
+			<div id="time">时间</div>
+			<div id="date">年月日</div>
+		</div>
+	</div>
+	<div class="right">
+		这里是最新的作业区
+	</div>
+
+</div>
+
+<div class="bottom">Copyright ©2019 Jeyson</div>
+
+<script type="text/javascript">
+	// 格式化时间，在个位数时间之前加 0
+	function CheckTime(i){
+		if (i < 10){
+			i = '0' + i;
+		}
+		return i;
+	}
+	function showdata(){
+		var data = document.getElementById("date");
+		var time = document.getElementById("time");
+		var myDate = new Date();
+		var year = myDate.getFullYear();
+		var month = myDate.getMonth() + 1;
+		var date_day = myDate.getDate();
+		// 周几
+		var day = myDate.getDay();
+		var h = myDate.getHours();
+		var m = myDate.getMinutes();
+		var s = myDate.getSeconds();
+		
+		month = CheckTime(month);
+		date_day = CheckTime(date_day);
+		h = CheckTime(h);
+		m = CheckTime(m);
+		s = CheckTime(s);
+
+		var weekday = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
+
+		time.innerText = h + ' : ' + m + ' : ' + s;
+		data.innerHTML = year + '年' + month + '月' + date_day + '日' + weekday[day];
+		setTimeout(showdata, 1000);
+	}
+</script>
+
 </body>
 </html>

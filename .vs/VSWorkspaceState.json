@@ -1,10 +1,14 @@
 {
   "ExpandedNodes": [
     "",
-    "\\01 WebUI",
-    "\\01 WebUI\\CSS",
-    "\\02 WebAPP"
+    "\\01 需求功能分析",
+    "\\02 页面设计文件",
+    "\\03 页面设计实现",
+    "\\03 页面设计实现\\CSS",
+    "\\03 页面设计实现\\Images",
+    "\\04 WebAPP实现",
+    "\\可能会用到的素材"
   ],
-  "SelectedNode": "\\01 WebUI\\register.html",
+  "SelectedNode": "\\03 页面设计实现\\Index.html",
   "PreviewInSolutionExplorer": false
 }
